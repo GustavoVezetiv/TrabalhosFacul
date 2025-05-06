@@ -399,6 +399,14 @@ ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
+"app@file:":
+  version "0.0.0"
+  resolved "file:"
+  dependencies:
+    app "file:"
+    react "^19.0.0"
+    react-dom "^19.0.0"
+
 argparse@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/argparse/-/argparse-2.0.1.tgz"
