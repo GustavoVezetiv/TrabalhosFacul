@@ -3,14 +3,14 @@ import { ImageSourcePropType, StyleSheet } from "react-native";
 
 type Props = {
     imgSource: ImageSourcePropType;
-    SelectedImage: string;
+    selectedImage?: string;
 };
 
-export function ImageViewer({ imgSource, SelectedImage }: Props) {
-    const imageSource = SelectedImage ? { uri: SelectedImage } : imgSource;
+export default function ImageViewer({ imgSource, selectedImage }: Props) {
+    const imageSource = selectedImage ? { uri: selectedImage } : imgSource;
     return (
-        <Image
-            source={imgSource}
+        <Image 
+            source={imageSource}
             style={styles.image}
         />
     );
