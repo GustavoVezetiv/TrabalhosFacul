@@ -10,6 +10,7 @@ const PlaceholderImage = require('@/assets/images/tharg.png');
 export default function Index() {
 
     const [SelectedImage, setSelectedImage] = useState<string | undefined>(undefined);
+    const [showAppOptions, setShowAppOptions] = useState<boolean>(false);
 
     const pickImageAsync = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -20,6 +21,7 @@ export default function Index() {
 
         if (!result.canceled) {
             setSelectedImage(result.assets[0].uri);
+            setShowAppOptions(true);
         } else {
             alert('You did not select any image.');
         }
@@ -30,7 +32,7 @@ export default function Index() {
         <ImageViewer imgSource={PlaceholderImage} selectedImage={SelectedImage} />
         <View style={styles.footerContainer}>
         <Button theme="primary" label="Escolha uma foto" onPress={pickImageAsync}/>
-        <Button label="Use esta foto"/>
+        <Button label="Use esta foto" onPress={() => setShowAppOptions(true)}/>
 
         </View>
       </View>
